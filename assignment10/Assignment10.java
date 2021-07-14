@@ -1,29 +1,22 @@
 /*
- * Given two strings, a and b, create a bigger string made of the first char 
- * of a, the first char of b, the second char of a, the second char of b, 
- * and so on. Any leftover chars go at the end of the result.
- * If the inputs are "Hello" and "World", then the output is "HWeolrllod".
+ * Given a string and an int n, return a string made of n repetitions of the 
+ * last n characters of the string. You may assume that n is between 0 and the 
+ * length of the string, inclusive. For example if the inputs are “Wipro” and 3, 
+ * then the output should be “propropro”.
  * */
-
-package com.w3epic.wiprotraining.assignment10;
 
 public class Assignment10 {
 
 	public static void main(String[] args) {
-		String a = "Helloo";
-		String b = "World123abc";
-
-		String bigger = a.length() > b.length() ? a : b;
-		String smaller = a.length() < b.length() ? a : b;
-
+		String str = "Wipro";
+		int n = 3;
+		
 		StringBuffer sb = new StringBuffer();
-
-		for (int i = 0; i < smaller.length(); i++) {
-			sb.append(a.charAt(i)).append(b.charAt(i));
+			
+		for (int i = 0; i < n; i++) {
+			sb.append(str.substring(str.length() - n));
 		}
-		
-		sb.append(bigger.substring(smaller.length(), bigger.length()));
-		
+
 		System.out.println(sb);
 	}
 

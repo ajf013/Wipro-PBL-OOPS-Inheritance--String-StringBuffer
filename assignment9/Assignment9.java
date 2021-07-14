@@ -1,25 +1,28 @@
 /*
- * Return a version of the given string, where for every star (*) in the 
- * string the star and the chars immediately to its left and right are gone. 
- * So "ab*cd" yields "ad" and "ab**cd" also yields "ad".
+ * Given two strings, a and b, create a bigger string made of the first char 
+ * of a, the first char of b, the second char of a, the second char of b, 
+ * and so on. Any leftover chars go at the end of the result.
+ * If the inputs are "Hello" and "World", then the output is "HWeolrllod".
  * */
-
-package com.w3epic.wiprotraining.assignment9;
 
 public class Assignment9 {
 
 	public static void main(String[] args) {
-		String str = "ab*cd";
-		
-		String[] strs = str.split(".[\\*]+.");
-		
+		String a = "Helloo";
+		String b = "World123abc";
+
+		String bigger = a.length() > b.length() ? a : b;
+		String smaller = a.length() < b.length() ? a : b;
+
 		StringBuffer sb = new StringBuffer();
+
+		for (int i = 0; i < smaller.length(); i++) {
+			sb.append(a.charAt(i)).append(b.charAt(i));
+		}
 		
-		for (String x : strs)
-			sb.append(x);
+		sb.append(bigger.substring(smaller.length(), bigger.length()));
 		
 		System.out.println(sb);
-
 	}
 
 }
